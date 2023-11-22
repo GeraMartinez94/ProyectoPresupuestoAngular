@@ -12,6 +12,7 @@ export class ListarGastoComponent implements OnInit, OnDestroy {
  presupuesto:number;
  restante: number;
  listGasto: any[]=[];
+ cargando: boolean = false; // Variable para el estado de carga
   constructor(private _presupuestoService:PresupuestoService) {
     this.presupuesto = 0;
     this.restante = 0;
@@ -39,5 +40,13 @@ export class ListarGastoComponent implements OnInit, OnDestroy {
       return 'alert alert-warning';
     }else
       return 'alert alert-secondary'
+  }
+  limpiarListado() {
+    this.cargando = true; // Indica que la carga está en progreso
+    // Simula un tiempo de espera (puedes reemplazar esto con tu lógica real)
+    setTimeout(() => {
+      this.listGasto = []; // Limpia la lista de gastos
+      this.cargando = false; // Indica que la carga ha finalizado
+    }, 1000); // 1000 milisegundos (1 segundo) como ejemplo, ajusta según tus necesidades
   }
 }

@@ -22,3 +22,12 @@
     </ul>
   </div>
 </div>
+<div class="row" style="margin-top:40px;">
+  <!-- ... otros elementos ... -->
+  <div class="col-lg-6">
+    <button class="btn btn-danger" (click)="limpiarListado()" [disabled]="cargando">
+      <span *ngIf="cargando" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      {{ cargando ? 'Limpiando...' : 'Limpiar Listado' }}
+    </button>
+  </div>
+</div>
